@@ -1,14 +1,17 @@
 # django-studentportal-project
 
-gawin niyo muna 'to sa cmd
-
-1. go to terminal or cmd 
-2. type pip install django (if wala pa kayong django)
-3. update django if need
-4. install python extension sa vscode (if wala pa kayong python)
-5. type pip install django-crispy-forms
-6. type py manage.py makemigrations
-7. type py manage.py migrate
-8. type py manage.py runserver
-
-ps. hindi pa nagana buttons kapag gusto niyo makita 'yong pages sa web lagyan niyo /notes (name ng html file) 'yong host niyo
+1. create a folder on your desktop, named it 'django'
+2. go to the folder and type cmd on the folder path
+3. type py -m venv venv
+4. type venv\scripts\activate
+5. type pip install django
+6. update django version if needed
+7. type django-admin startproject studentstudyportal
+8. type cd studentstudyportal
+9. type django-admin startapp dashboard
+10. type code .
+11. install python extension in vscode
+12. type pip install django-crispy-forms
+13. type py manage.py makemigrations
+14. type py manage.py migrate
+15. type py manage.py runserver
