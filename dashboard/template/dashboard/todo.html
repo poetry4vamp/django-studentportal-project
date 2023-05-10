@@ -1,0 +1,113 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-List</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body> -->
+
+    {% extends 'dashboard/home.html' %}
+    {% load static %}
+    {% load crispy_forms_tags %}
+    {% block content %}
+
+    <!-- NAVIGATION BAR, LAHAT NG LINKS -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="home.html"><span class="text-secondary">STUDY</span>ERA</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="home.html">Home</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link" href="profile.html">Profile</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link" href="homepage.html">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+    <section style="padding: 5%">
+        <div class="container">
+            {% if not todos_done %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Status</th>
+                    <th scope="col"><i class="bi bi-trash-fill"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for todo in todos %}
+                    <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td>{{todo.title}}</td>
+                        <td>
+                            <a href="{% url 'update-todo' todo.id %}">
+                                <div class="form-check">
+                                    {% if todo.is_finished == True %}
+                                    <input class="form-check-input" type="checkbox" value="" checked>
+                                    {% else %}
+                                    <input class="form-check-input" type="checkbox" value="">
+                                    {% endif %}
+                                    <label class="form-check-label text-dark" for="flexCheckDefault">
+                                        Mark as Completed 
+                                    </label>
+                                </div>
+                            </a>
+                        </td>
+                        <td><a class="link-secondary" href="{% url 'delete-todo' todo.id %}">
+                            <i class="bi bi-trash-fill"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <h5 class="text-center">All To-Do-Tasks are completed.</h5>
+            {% endif %}
+            </div>
+    </section>
+
+    <!-- To do list starts -->
+	<section class="services section-padding" id="services">
+		<div class="container">
+			<form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4 text-center">Create Todo</legend>
+                {{form|crispy}}
+                </fieldset>
+                <div class="form-group text-center">
+                    <br><button href="" class="btn btn-dark" type="submit">
+                        Create
+                    </button>
+                </div>
+            </form>
+		</div>
+	</section>
+
+    <!-- footer starts -->
+	<footer class="bg-dark p-2 text-center">
+		<div class="container">
+			<p class="text-white">All Right Reserved By @DJANGO TEAM 2022-2023</p>
+		</div>
+	</footer>
+	<!-- footer ends -->
+
+    {% endblock content %}
+
+<!-- </body>
+</html> -->
