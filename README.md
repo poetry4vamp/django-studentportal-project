@@ -16,28 +16,28 @@
 14. type py manage.py migrate
 15. modify settings.py (see the 'settings.py' file in studentstudyportal folder)
 
-    INSTALLED_APPS = [
-        ...
-        'dashboard',
-        'crispy_forms',
-        'crispy_bootstrap4'
-    ]
+INSTALLED_APPS = [
+...
+'dashboard',
+'crispy_forms'
+'crispy_bootstrap4'
+]
 
 16. add these at the bottom part of settings.py 
 
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS=[BASE_DIR/"static"]
+STATIC_URL = '/static/'
+STATICFILES_DIRS=[BASE_DIR/"static"]
     
-    CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
     
 17. modify urls.py (see the 'urls.py' file in studentstudyportal folder)
 
-    from django.urls.conf import include
+from django.urls.conf import include
     
-    urlpatterns = [
-        ...
-        path('',include('dashboard.urls'))
-    ]
+urlpatterns = [
+...
+path('',include('dashboard.urls'))
+]
 
 18. type py manage.py runserver
     
