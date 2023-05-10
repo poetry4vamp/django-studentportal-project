@@ -12,10 +12,8 @@
 10. type code .
 11. install python extension in vscode
 12. type pip install django-crispy-forms
-13. type py manage.py makemigrations
-14. type py manage.py migrate
-15. modify the INSTALLED_APPS of settings.py (see the 'settings.py' file in studentstudyportal folder)
-16. add these at the bottom part of settings.py 
+13. modify the INSTALLED_APPS of settings.py (see the 'settings.py' file in studentstudyportal folder)
+14. add these at the bottom part of settings.py 
 
     STATIC_URL = '/static/'
 
@@ -23,7 +21,9 @@
 
     CRISPY_TEMPLATE_PACK = "bootstrap4"
     
-17. modify imports and urlpatterns of urls.py (see the 'urls.py' file in studentstudyportal folder)
+15. modify imports and urlpatterns of urls.py (see the 'urls.py' file in studentstudyportal folder)
+16. type py manage.py makemigrations
+17. type py manage.py migrate
 18. type py manage.py runserver
     
     
