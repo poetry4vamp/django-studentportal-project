@@ -18,7 +18,9 @@
 16. add these at the bottom part of settings.py 
 
     STATIC_URL = '/static/'
+
     STATICFILES_DIRS=[BASE_DIR/"static"]
+
     CRISPY_TEMPLATE_PACK = "bootstrap4"
     
 17. modify imports and urlpatterns of urls.py (see the 'urls.py' file in studentstudyportal folder)
