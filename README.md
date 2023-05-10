@@ -14,31 +14,14 @@
 12. type pip install django-crispy-forms
 13. type py manage.py makemigrations
 14. type py manage.py migrate
-15. modify settings.py (see the 'settings.py' file in studentstudyportal folder)
-
-    INSTALLED_APPS = [
-        ...
-        'dashboard',
-        'crispy_forms'
-        'crispy_bootstrap4'
-    ]
-
+15. modify the INSTALLED_APPS of settings.py (see the 'settings.py' file in studentstudyportal folder)
 16. add these at the bottom part of settings.py 
 
     STATIC_URL = '/static/'
     STATICFILES_DIRS=[BASE_DIR/"static"]
-    
     CRISPY_TEMPLATE_PACK = "bootstrap4"
     
-17. modify urls.py (see the 'urls.py' file in studentstudyportal folder)
-
-    from django.urls.conf import include
-    
-    urlpatterns = [
-        ...
-        path('',include('dashboard.urls'))
-    ]
-
+17. modify imports and urlpatterns of urls.py (see the 'urls.py' file in studentstudyportal folder)
 18. type py manage.py runserver
     
     
