@@ -25,7 +25,7 @@
 15. modify imports and urlpatterns of urls.py (see the 'urls.py' file in studentstudyportal folder)
 16. type py manage.py makemigrations
 17. type py manage.py migrate
-18. if both makemigrations and migrate don't work, try to copy the files in migrations folder to your migrations folder.
+18. if both makemigrations and migrate don't work, try to copy the files in migrations folder to your migrations folder
 19. type py manage.py runserver 
     
     
