@@ -13,8 +13,9 @@
 11. install python extension in vscode
 12. type py manage.py createsuperuser (create your own admin credentials to access /admin)
 13. type pip install crispy-bootstrap4
-14. modify the INSTALLED_APPS of settings.py (see the 'settings.py' file in studentstudyportal folder)
-15. add these at the bottom part of settings.py 
+14. type pip install requests
+15. modify the INSTALLED_APPS of settings.py (see the 'settings.py' file in studentstudyportal folder)
+16. add these at the bottom part of settings.py 
 
         STATIC_URL = '/static/'
 
