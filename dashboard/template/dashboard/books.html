@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style-books.css' %}" />
+</head>
+
+<body>
+
+    {% load crispy_forms_tags %}
+
+    <!-- NAVIGATION BAR, LAHAT NG LINKS -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="home.html"><span class="text-secondary">STUDY</span>ERA</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="home.html">Home</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link" href="profile.html">Profile</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link" href="homepage.html">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+    <!-- searching for books starts here-->
+    <section class="text-center container" style="padding: 5%;">
+        <h2>Search and Browse Books</h2>
+        <p>Enter the search query to obtain the results.</p><b></b>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input class="btn btn-dark" type="submit" value="Submit">
+        </form><br>
+    
+        {% for result in results %} 
+        
+        
+        <a href="{{result.preview}}" target="_blank" class="link-dark">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img class="img-fluid" src="{{result.thumbnail}}" alt="">  
+                        </div>
+                        <div class="col- md-9">
+                            <h3 class="p-0 m-0">{{result.title}}</h3>
+                            <b>
+                                <u>
+                                    <h5 class="p-0 m-0">{{result.subtitle}}</h5>
+                                </u>
+                            </b>
+                            {% if result.description %} 
+                            <br><h6 class="p-0 m-1">{{result.description}}</h6>
+                            {% endif %}
+                            <b> 
+                                {% if result.categories %}
+                                <h6 class="ml-0 mt-3">Category: name
+                                    {% for category in result.categories %}
+                                        {{category}} 
+                                    {% endfor %}                          
+                                </h6>
+                                {% endif %}
+                                {% if result.count %}
+                                <h6 class="ml-0 mt-1">Pages: {{result.count}}</h6>
+                                {% endif %}
+                                {% if result.rating %}
+                                <h6 class="ml-0 mt-1">Rating: {{result.rating}}</h6>
+                                {% endif %}
+                            </b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        <br>
+    </section>
+
+    <!-- footer starts -->
+	<footer class="bg-dark p-2 text-center">
+		<div class="container">
+			<p class="text-white">All Right Reserved By @DJANGO TEAM 2022-2023</p>
+		</div>
+	</footer>
+	<!-- footer ends -->
+
+</body>
+</html>
