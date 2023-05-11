@@ -22,3 +22,8 @@ class TodoForm(forms.ModelForm):
         
 class DashboardForm(forms.Form):
     text = forms.CharField(max_length=100,label="Search books:")
+
+class UserRegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']
