@@ -1,0 +1,41 @@
+
+{% extends 'dashboard/home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content  %}
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="homepage.html"><span class="text-secondary">STUDY</span>ERA</a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+						<a class="nav-link" href="login.html">Signin</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+    <!--Signup form-->
+    <div class="container mt-5 p-5">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4 mt-5">Sign Up</legend>
+          {{ form | crispy }}
+        </fieldset>
+        <div class="form-group">
+          <div class="d-grid gap-2 col-3 mx-auto mb-3 mt-3">
+            <button class="btn btn-secondary text-white" type="submit">
+              SignUp
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="d-grid gap-2 col-8 mx-auto mb-3 mt-3">
+        <p class="text-secondary text-center">Already a user? <a href="{% url 'login' %}" class="link-secondary">Login</a></p>
+      </div>
+    </div>
+
+{% endblock content %}
