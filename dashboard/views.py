@@ -8,6 +8,9 @@ from django.views import generic
 import requests
 
 # Create your views here.
+def homepage(request):
+    return render(request,'dashboard/homepage.html')
+
 def home(request):
     return render(request,'dashboard/home.html')
 
